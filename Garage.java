@@ -6,6 +6,15 @@ public class Garage {
 	
     ArrayList<Vehicle> vehicles = new ArrayList<>();
     int bill = 0;
+    
+    void emptyGarage(){
+        vehicles.clear();
+    }
+
+    void addToGarage(Vehicle vehicle){
+        vehicles.add(vehicle);
+    }
+    
     void removeVehicleByID(int ID){
 
         for(int i = 0; i<vehicles.size();i++){
@@ -37,7 +46,9 @@ public class Garage {
             }
 
             else if(vehicles.get(i) instanceof Helicopter){
-                if(((Helicopter) vehicles.get(i)).numOfBlades> 4) bill += 10000;
+                if(((Helicopter) vehicles.get(i)).numOfBlades> 4){ 					
+                	bill += 10000;
+                }
                 else bill+=8000;
             }
 
@@ -48,15 +59,5 @@ public class Garage {
                 else bill += 7500;
             }
         }
-    }
-
-
-
-    void emptyGarage(){
-        vehicles.clear();
-    }
-
-    void addToGarage(Vehicle vehicle){
-        vehicles.add(vehicle);
     }
 }
